@@ -17,6 +17,6 @@
       'Content-Type': 'text/json'
     });
     return res.end(scdlDataStore.toJSON(void 0, 2));
-  }).listen(9615);
+  }).listen(80);
 
 }).call(this);
