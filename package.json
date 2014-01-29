@@ -1,0 +1,23 @@
+{
+  "name": "slipstream",
+  "version": "0.0.1",
+  "description": "Experimental node.js app for experimenting with OpenShift deployment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Encapsule/slipstream.git"
+  },
+  "author": "ChrisRus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Encapsule/slipstream/issues"
+  },
+  "homepage": "https://github.com/Encapsule/slipstream",
+  "dependencies": {
+    "onm": "~0.1.8",
+    "onmd-scdl": "0.0.6"
+  }
+}
