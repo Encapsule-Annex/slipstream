@@ -8,7 +8,9 @@ scdlStore = new onm.Store(scdlModel)
 scdlAddressRoot = scdlModel.createRootAddress()
 scdlAddressNewCatalogue = scdlModel.createPathAddress("scdl.catalogues.catalogue");
 
-listenPort = process.env.OPENSHIFT_NODEJS_PORT or 1031
+#listenIp =   process.env.OPENSHIFT_INTERNAL_IP or LOCALHOST
+listenPort = process.env.OPENSHIFT_INTERNAL_PORT or 1031
+
 connectionCount = 0
 
 console.log("onm data store service started.")
