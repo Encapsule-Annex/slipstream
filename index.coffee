@@ -1,18 +1,25 @@
 
 http = require('http')
-
 onm = require('onm')
 
-scdlDataModelLibrary = require('onmd-scdl')
+scdlModel = new onm.Model(require('onmd-scdl').DataModel)
+scdlStore = new onm.Store(scdlModel)
 
-scdlDataModel = new onm.Model(scdlDataModelLibrary.DataModel)
-scdlDataStore = new onm.Store(scdlDataModel)
+scdlAddressRoot = scdlModel.createRootAddress()
+scdlAddressNewCatalogue = scdlModel.createPathAddress("scdl.catalogues.catalogue");
 
 
 http.createServer( (req,res) ->
+    
     res.writeHead(200, {'Content-Type': 'text/json'})
-    res.end(scdlDataStore.toJSON(undefined, 2))
-).listen(9615)
+
+    catalogueNamespace = scdlStore.createComponent(scdlAddressNewCatalogue)
+    res.end(scdlStore.toJSON())
+
+    console.log(catalogueNamespace.toJSON(undefined,2))
+    scdlStore.removeComponent(catalogueNamespace.getResolvedAddress())
+
+).listen(1031)
 
 
 
