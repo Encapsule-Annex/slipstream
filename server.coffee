@@ -8,13 +8,13 @@ scdlStore = new onm.Store(scdlModel)
 scdlAddressRoot = scdlModel.createRootAddress()
 scdlAddressNewCatalogue = scdlModel.createPathAddress("scdl.catalogues.catalogue");
 
-#listenIp =   process.env.OPENSHIFT_INTERNAL_IP or LOCALHOST
-listenPort = process.env.OPENSHIFT_INTERNAL_PORT or 1031
+listenIpAddress = process.env.OPENSHIFT_INTERNAL_IP or "127.0.0.1"
+listenIpPort = process.env.OPENSHIFT_INTERNAL_PORT or 1031
 
 connectionCount = 0
 
 console.log("onm data store service started.")
-console.log("... listening for connections on port #{listenPort}")
+console.log("... initializing socket listener on #{listenIpAddress}:#{listenIpPort} ...")
 
 http.createServer( (req,res) ->
 
@@ -31,7 +31,9 @@ http.createServer( (req,res) ->
     console.log("---")
     scdlStore.removeComponent(catalogueNamespace.getResolvedAddress())
 
-).listen(listenPort)
+).listen(listenIpPort, listenIpAddress, ->
+    console.log("... listening for connections on #{listenIpAddress}:#{listenIpPort}");
+)
 
 
 
