@@ -14,9 +14,9 @@
 
   scdlAddressNewCatalogue = scdlModel.createPathAddress("scdl.catalogues.catalogue");
 
-  listenIpAddress = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
+  listenIpAddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-  listenIpPort = process.env.OPENSHIFT_INTERNAL_PORT || 1031;
+  listenIpPort = process.env.OPENSHIFT_NODEJS_PORT || 1031;
 
   connectionCount = 0;
 

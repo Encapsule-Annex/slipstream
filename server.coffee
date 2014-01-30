@@ -8,8 +8,8 @@ scdlStore = new onm.Store(scdlModel)
 scdlAddressRoot = scdlModel.createRootAddress()
 scdlAddressNewCatalogue = scdlModel.createPathAddress("scdl.catalogues.catalogue");
 
-listenIpAddress = process.env.OPENSHIFT_INTERNAL_IP or "127.0.0.1"
-listenIpPort = process.env.OPENSHIFT_INTERNAL_PORT or 1031
+listenIpAddress = process.env.OPENSHIFT_NODEJS_IP or "127.0.0.1"
+listenIpPort = process.env.OPENSHIFT_NODEJS_PORT or 1031
 
 connectionCount = 0
 
